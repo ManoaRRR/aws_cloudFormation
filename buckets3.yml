@@ -1,0 +1,21 @@
+AWSTemplateFormateVersion: 2010-09-09 
+Resources:
+  MyS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: STD21087
+      MyS3BucketNameParameter:
+    Type: 'AWS::SSM::Parameter'
+    Properties:
+      Description: 'Nom du nouveau bucket S3'
+      Name: '/MonApp/NomBucketS3'
+      Type: 'String'
+      Value: !Ref MyS3Bucket
+
+  MyS3BucketArnParameter:
+    Type: 'AWS::SSM::Parameter'
+    Properties:
+      Description: 'ARN du nouveau bucket S3'
+      Name: '/MonApp/ArnBucketS3'
+      Type: 'String'
+      Value: !GetAtt MyS3Bucket.Arn
