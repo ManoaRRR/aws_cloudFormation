@@ -14,7 +14,7 @@ jobs:
       - name: Deploy stack
         uses: aws-actions/aws-cloudformation-deploy@v4
         with:
-          stack-name: STD21079
+          stack-name: STD21087
           template-file: s3.yml
           parameter-overrides: |
             BucketName=my-bucket-name
